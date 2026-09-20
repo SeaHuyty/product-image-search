@@ -7,6 +7,6 @@ model:
 
 # Directory Path
 paths:
-  styles_csv: engine/data/styles_csv
+  styles_csv: engine/data/styles.csv
   images_dir: engine/data/images
   artifacts_dir: engine/artifacts
