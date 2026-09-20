@@ -1,0 +1,12 @@
+# Model
+model: 
+  base_model: "openai/clip-vit-base-patch32"
+  device: auto
+  batch_size: 128
+  top_k: 10
+
+# Directory Path
+paths:
+  styles_csv: engine/data/styles_csv
+  images_dir: engine/data/images
+  artifacts_dir: engine/artifacts
