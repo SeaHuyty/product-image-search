@@ -22,10 +22,10 @@ def build_description(row):
         vals = [row[c] for c in cols if pd.notna(row[c])]
         return " ".join(str(int(v)) if isinstance(v, float) else str(v) for v in vals)
 
-        head = join(["gender", "usage", "baseColour", "articleType"])
-        tail = ", ".join(x for x in [join(["subCategory"]), join(["season", "year"])] if x)
-        
-        return f"{head} - {tail}" if tail else head
+    head = join(["gender", "usage", "baseColour", "articleType"])
+    tail = ", ".join(x for x in [join(["subCategory"]), join(["season", "year"])] if x)
+
+    return f"{head} - {tail}" if tail else head
 
 
 def attach_image(df, images_dir):
@@ -44,7 +44,7 @@ def load_catalog(cfg):
     df = read_styles(paths["styles_csv"])
     df = attach_image(df, paths["images_dir"])
     df["description"] = df.apply(build_description, axis=1)
-    df = df.rename(columns={"productionDisplayName": "name"})
+    df = df.rename(columns={"productDisplayName": "name"})
 
     return df[["id", "name", "description", "image_path"]]
 
